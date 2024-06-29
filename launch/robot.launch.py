@@ -51,11 +51,15 @@ def generate_launch_description():
             'lidar_pkg_dir',
             default=os.path.join(get_package_share_directory('ld08_driver'), 'launch'))
         LDS_LAUNCH_FILE = '/ld08.launch.py'
-    else:
+    elif LDS_MODEL == 'RPLIDAR-A1M8':
         lidar_pkg_dir = LaunchConfiguration(
             'lidar_pkg_dir',
             default=os.path.join(get_package_share_directory('rplidar_ros'), 'launch'))
         LDS_LAUNCH_FILE = '/rplidar_a1_launch.py'
+    else:
+        lidar_pkg_dir = LaunchConfiguration(
+            'lidar_pkg_dir',
+            default=os.path.join(get_package_share_directory('hls_lfcd_lds_driver'), 'launch'))
 
     use_sim_time = LaunchConfiguration('use_sim_time', default='false')
 
